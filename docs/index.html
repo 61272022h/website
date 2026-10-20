@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f2f0e8" />
+    <meta
+      name="description"
+      content="一場從放學後開始的數位策展：家庭教育支出、課後時間，和我們還需要追問的事。"
+    />
+    <title>放學以後，時間屬於誰？— 一場關於教育資源的數位策展</title>
+    <script type="module" crossorigin src="./assets/index-D3Y6Pwzm.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ZLbABrpH.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到展覽內容</a>
+
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="放學以後，回到首頁">
+        <span class="wordmark-mark" aria-hidden="true">AF</span>
+        <span class="wordmark-copy">放學以後<span>一場數位策展</span></span>
+      </a>
+      <nav class="site-nav" aria-label="主要導覽">
+        <a href="#spending">家庭支出</a>
+        <a href="#time">課後時間</a>
+        <a class="nav-index" href="#question">留下問題 <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> 台灣・教育資源觀察 / 01</p>
+          <h1 id="hero-title">放學以後，<br /><em>時間屬於誰？</em></h1>
+          <p class="hero-deck">同樣一聲下課鐘，接下來的時間，為什麼會有不同的選擇？</p>
+          <p class="hero-note">從家庭能投入的金錢，到學生如何安排課後時間。這場展覽不急著替差距下結論，先一起看清楚數據說了什麼、又沒有說什麼。</p>
+          <a class="round-link" href="#spending">
+            <span>進入展覽</span>
+            <span class="round-link-icon" aria-hidden="true">↓</span>
+          </a>
+        </div>
+
+        <div class="hero-visual" role="img" aria-label="課後時間選擇的抽象時鐘插畫">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="clock-center">
+            <span class="clock-overline">AFTER SCHOOL</span>
+            <strong>15:30</strong>
+            <span class="clock-caption">一天裡，另一段時間開始了</span>
+          </div>
+          <span class="orbit-label label-study">補習</span>
+          <span class="orbit-label label-care">照顧</span>
+          <span class="orbit-label label-work">打工</span>
+          <span class="orbit-label label-rest">休息</span>
+          <span class="hero-index">A / 01<br />THE HOURS AFTER</span>
+          <span class="hero-asterisk" aria-hidden="true">✳</span>
+        </div>
+
+        <div class="hero-bottomline">
+          <span>一個關於時間與資源的提問</span>
+          <span>向下捲動，慢慢看</span>
+        </div>
+      </section>
+
+      <section class="context-strip" aria-label="展覽資料範圍">
+        <div class="context-inner">
+          <span class="context-kicker">兩個時間切片</span>
+          <span class="context-item"><b>2024</b> 家戶支出</span>
+          <span class="context-cross" aria-hidden="true">×</span>
+          <span class="context-item"><b>2001</b> 學生課後安排</span>
+          <span class="context-caveat">不同資料・不同年代・不構成趨勢線</span>
+        </div>
+      </section>
+
+      <section class="spending section-shell" id="spending" aria-labelledby="spending-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span class="eyebrow-number">01</span> 家庭能投入多少</p>
+          <h2 id="spending-title">教育支出，<br /><em>沿著所得分層。</em></h2>
+          <p class="section-intro">主計總處 2024 年家庭收支調查，把家戶依可支配所得分成五組。教育服務的平均支出，從最低所得組到最高所得組呈現明顯差異。</p>
+        </div>
+
+        <div class="spending-layout">
+          <div class="ratio-card reveal">
+            <div class="ratio-topline"><span>2024 / HOUSEHOLD SPENDING</span><span class="ratio-symbol" aria-hidden="true">↗</span></div>
+            <div class="ratio-value">32.6<span>×</span></div>
+            <p>最高所得組的教育服務<br />平均支出約為最低所得組的</p>
+            <div class="ratio-rule"><span></span></div>
+            <p class="ratio-footnote">每戶每年・全體家戶平均</p>
+          </div>
+
+          <div class="chart-card reveal">
+            <div class="chart-heading">
+              <div>
+                <p class="chart-overline">EDUCATION SERVICES</p>
+                <h3>所得五等分位・年支出</h3>
+              </div>
+              <span class="chart-unit">NT$ / 戶 / 年</span>
+            </div>
+            <div class="quintile-chart" role="group" aria-label="選擇一個所得組別查看支出詳情">
+              <button class="quintile-row" type="button" data-quintile="q1" aria-pressed="true" aria-label="查看最低所得組，每戶每年平均教育服務支出 1,741 元">
+                <span class="quintile-name">Q1 <small>最低</small></span>
+                <span class="quintile-track"><span class="quintile-bar" style="--bar: 3.1%"></span></span>
+                <strong>1,741</strong>
+              </button>
+              <button class="quintile-row" type="button" data-quintile="q2" aria-pressed="false" aria-label="查看次低所得組，每戶每年平均教育服務支出 7,685 元">
+                <span class="quintile-name">Q2 <small>次低</small></span>
+                <span class="quintile-track"><span class="quintile-bar" style="--bar: 13.5%"></span></span>
+                <strong>7,685</strong>
+              </button>
+              <button class="quintile-row" type="button" data-quintile="q3" aria-pressed="false" aria-label="查看中間所得組，每戶每年平均教育服務支出 18,316 元">
+                <span class="quintile-name">Q3 <small>中間</small></span>
+                <span class="quintile-track"><span class="quintile-bar" style="--bar: 32.2%"></span></span>
+                <strong>18,316</strong>
+              </button>
+              <button class="quintile-row" type="button" data-quintile="q4" aria-pressed="false" aria-label="查看次高所得組，每戶每年平均教育服務支出 33,336 元">
+                <span class="quintile-name">Q4 <small>次高</small></span>
+                <span class="quintile-track"><span class="quintile-bar" style="--bar: 58.7%"></span></span>
+                <strong>33,336</strong>
+              </button>
+              <button class="quintile-row quintile-row-top" type="button" data-quintile="q5" aria-pressed="false" aria-label="查看最高所得組，每戶每年平均教育服務支出 56,832 元">
+                <span class="quintile-name">Q5 <small>最高</small></span>
+                <span class="quintile-track"><span class="quintile-bar" style="--bar: 100%"></span></span>
+                <strong>56,832</strong>
+              </button>
+            </div>
+            <div class="chart-axis" aria-hidden="true"><span>0</span><span>約 28,000</span><span>56,832</span></div>
+            <div class="quintile-detail" aria-live="polite" aria-atomic="true">
+              <div class="quintile-detail-heading"><span id="detail-kicker">SELECTED / Q1</span><strong id="detail-label">最低所得組</strong></div>
+              <div class="quintile-detail-amount"><strong id="detail-amount">NT$1,741</strong><span>／戶／年</span></div>
+              <p id="detail-description">此組家戶位於可支配所得五等分位的最低一組。統計涵蓋全體家戶，不限有學齡子女家庭；「教育服務」也不等同補習費。</p>
+            </div>
+            <p class="chart-source">來源：主計總處《113 年家庭收支調查報告》表 6。教育服務不等於補習費；此數字也不是學生參與率。<a href="https://ws.dgbas.gov.tw/001/Upload/463/ebook/ebook_357928/pdf/full.pdf" target="_blank" rel="noreferrer">查看原始報告 <span aria-hidden="true">↗</span></a></p>
+            <p class="source-gap">政府資料開放平臺的 <a href="https://data.gov.tw/dataset/108266" target="_blank" rel="noreferrer">108266</a> 提供所得與總消費，沒有教育服務細項；本圖因此補用主計總處報告表 6。</p>
+          </div>
+        </div>
+
+        <aside class="read-this reveal" aria-label="數據解讀提醒">
+          <span class="read-this-mark" aria-hidden="true">!</span>
+          <div><strong>這張圖能說明家戶支出有差異。</strong><p>它沒有告訴我們，哪些家戶有學齡子女、孩子實際參加了什麼，或學習成果如何。</p></div>
+          <span class="read-this-tag">READ THE DENOMINATOR</span>
+        </aside>
+      </section>
+
+      <section class="time-section" id="time" aria-labelledby="time-title">
+        <div class="time-orbit" aria-hidden="true"><span>TIME</span><span>TIME</span><span>TIME</span></div>
+        <div class="time-inner section-shell">
+          <div class="time-heading reveal">
+            <p class="eyebrow eyebrow-light"><span class="eyebrow-number">02</span> 時間也有成本</p>
+            <h2 id="time-title">有些課後安排，<br /><em>不只由金錢決定。</em></h2>
+            <p class="section-intro">一份 2001 年的台灣教育長期追蹤調查，讓我們看見打工與補習安排曾經同時出現在學生的生活裡。</p>
+          </div>
+
+          <div class="history-card reveal">
+            <div class="history-meta"><span class="history-year">2001</span><span>TEPS・高中職／五專二年級</span><span class="history-sample">樣本 13,319 人</span></div>
+            <div class="history-body">
+              <div class="history-title"><span>每週參加校內外課業輔導、補習或家教</span><span class="history-unit">學生比例</span></div>
+              <div class="history-bars">
+                <div class="history-bar-group">
+                  <div class="history-bar-label"><span>有打工</span><strong>34.3<small>%</small></strong></div>
+                  <div class="history-track"><span class="history-bar history-bar-work" style="--height: 34.3%"></span></div>
+                </div>
+                <div class="history-bar-group">
+                  <div class="history-bar-label"><span>沒有打工</span><strong>52.1<small>%</small></strong></div>
+                  <div class="history-track"><span class="history-bar history-bar-no-work" style="--height: 52.1%"></span></div>
+                </div>
+              </div>
+              <div class="history-axis"><span>0%</span><span>25%</span><span>50%</span><span>75%</span></div>
+            </div>
+            <div class="history-caption"><span class="caption-star" aria-hidden="true">✳</span><p>這是特定歷史樣本中兩組學生的比例差異。它提示我們留意課後時間的分配，<b>但不能證明打工造成補習減少，也不能代表今日學生。</b></p></div>
+            <a class="history-source" href="https://www2.ios.sinica.edu.tw/teps/htmls/TEPSNews/TEPS~News_032.pdf" target="_blank" rel="noreferrer">中研院 TEPS 電子報第 32 期・圖二及資料說明 <span aria-hidden="true">↗</span></a>
+          </div>
+
+          <p class="time-separation reveal"><span></span> 2024 家戶支出與 2001 學生調查是兩個不同的資料切片，請勿把它們讀成同一條趨勢。</p>
+        </div>
+      </section>
+
+      <section class="interpretation section-shell" aria-labelledby="interpret-title">
+        <div class="interpret-head reveal">
+          <p class="eyebrow"><span class="eyebrow-number">03</span> 把推論停在證據能到的地方</p>
+          <h2 id="interpret-title">哪些話，<br /><em>數據真的支持？</em></h2>
+        </div>
+        <div class="interpret-card reveal">
+          <div class="interpret-question"><span>CHECK YOUR READING / 01</span><p>看到 34.3% 和 52.1%，我們可以說什麼？</p></div>
+          <div class="answer-list" role="group" aria-label="選擇你認為數據支持的說法">
+            <button class="answer-option" type="button" data-answer="wrong-a" aria-pressed="false"><span class="answer-index">A</span><span>打工造成學生補習變少。</span><span class="answer-arrow" aria-hidden="true">↗</span></button>
+            <button class="answer-option" type="button" data-answer="right" aria-pressed="false"><span class="answer-index">B</span><span>在這份 2001 年樣本中，兩組學生的補習參與比例不同。</span><span class="answer-arrow" aria-hidden="true">↗</span></button>
+            <button class="answer-option" type="button" data-answer="wrong-c" aria-pressed="false"><span class="answer-index">C</span><span>台灣現在的教育機會差距正在擴大。</span><span class="answer-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <div class="answer-feedback" aria-live="polite" aria-atomic="true">
+            <span class="feedback-icon" aria-hidden="true">↳</span>
+            <p>選一個答案，看看證據的邊界在哪裡。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing section-shell" id="question" aria-labelledby="closing-title">
+        <p class="eyebrow"><span class="eyebrow-number">04</span> 帶著問題離開</p>
+        <h2 id="closing-title">哪些課後支持，<br /><em>不該只靠家庭？</em></h2>
+        <div class="closing-bottom">
+          <p>教育支出有差距，課後時間也有不同安排。下一步需要更貼近今日學生的資料，才能回答：家庭條件是否改變了孩子取得學習支持的機會？</p>
+          <span class="closing-stamp" aria-hidden="true">OPEN<br />QUESTION<br /><b>↘</b></span>
+        </div>
+        <div class="closing-question"><span>留給你的問題</span><strong>學校與社區，可以一起提供什麼？</strong><span class="question-spark" aria-hidden="true">✳</span></div>
+
+        <div class="feedback-panel reveal" aria-labelledby="feedback-title">
+          <div class="feedback-panel-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-number">↳</span> 觀展回饋 / OPTIONAL</p>
+              <h3 id="feedback-title">幫下一位觀眾，<br /><em>把資料看得更清楚。</em></h3>
+            </div>
+            <p class="feedback-purpose" id="feedback-description">回饋僅用於改善展覽文案、資料標示與互動；不收姓名、電子郵件或家庭經濟資料。請勿在回饋中填入個人資料。</p>
+          </div>
+
+          <form
+            class="feedback-form"
+            id="feedback-form"
+            action="https://script.google.com/macros/s/AKfycbwu15BXcCf3kczK1nn3xaS46cPHWBTVZLkhXM3ouArTXe2me_djbqcFHHfTLbEAYrdMLQ/exec"
+            method="post"
+            target="feedback-response-frame"
+            aria-describedby="feedback-description"
+          >
+            <input type="hidden" name="responseFormat" value="iframe" />
+            <input type="hidden" name="submissionId" id="feedback-submission-id" />
+
+            <div class="feedback-honeypot" aria-hidden="true">
+              <label for="feedback-website">請留空</label>
+              <input id="feedback-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="feedback-fields">
+              <fieldset class="consent-field">
+                <legend>資料使用同意 <span>必填</span></legend>
+                <label class="consent-option" for="feedback-consent">
+                  <input
+                    id="feedback-consent"
+                    name="consent"
+                    type="checkbox"
+                    value="我已閱讀說明，並同意將回饋用於策展改進。"
+                    required
+                  />
+                  <span>我已閱讀說明，並同意將回饋用於策展改進。</span>
+                </label>
+                <p class="consent-note">只收集送出時間、同意紀錄與你選擇填寫的回饋。</p>
+              </fieldset>
+
+              <div class="feedback-input">
+                <label for="feedback-text">請就 2024 家戶教育服務支出、2001 年 TEPS 課後安排的呈現、限制說明或互動，留下希望補充或修正的回饋。</label>
+                <textarea
+                  id="feedback-text"
+                  name="feedback"
+                  rows="5"
+                  maxlength="2000"
+                  placeholder="哪個地方需要說得更清楚？你希望補充什麼？"
+                  aria-describedby="feedback-hint feedback-count"
+                ></textarea>
+                <div class="feedback-meta">
+                  <span id="feedback-hint">選填，最多 2,000 字。請勿填入個人資料。</span>
+                  <output id="feedback-count" aria-live="off">0 / 2000</output>
+                </div>
+              </div>
+            </div>
+
+            <div class="feedback-submit-row">
+              <p id="feedback-status" role="status" aria-live="polite" aria-atomic="true">回饋是選填的；送出前請先閱讀並勾選資料使用同意。</p>
+              <button class="feedback-submit" type="submit">
+                <span>送出回饋</span>
+                <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </form>
+          <iframe
+            class="feedback-response-frame"
+            name="feedback-response-frame"
+            title="觀展回饋送出狀態"
+            aria-hidden="true"
+            tabindex="-1"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-main">
+        <a class="wordmark footer-wordmark" href="#top">
+          <span class="wordmark-mark" aria-hidden="true">AF</span>
+          <span class="wordmark-copy">放學以後<span>時間屬於誰？</span></span>
+        </a>
+        <p class="footer-disclaimer">一場關於家庭資源與教育機會的數位策展。<br />資料來源與限制隨展覽一併公開。</p>
+        <div class="footer-sources">
+          <span>資料與延伸閱讀</span>
+          <a href="https://ws.dgbas.gov.tw/001/Upload/463/ebook/ebook_357928/pdf/full.pdf" target="_blank" rel="noreferrer">主計總處・家庭收支調查 2024</a>
+          <a href="https://www2.ios.sinica.edu.tw/teps/htmls/TEPSNews/TEPS~News_032.pdf" target="_blank" rel="noreferrer">中研院・TEPS 電子報 32</a>
+          <a href="https://sdgs.un.org/goals/goal4" target="_blank" rel="noreferrer">聯合國・SDG 4.5 <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>TAIWAN / EDUCATION / AFTER SCHOOL</span><span>資料年份：2001・2024</span><a href="#top">回到展覽開端 ↑</a></div>
+    </footer>
+
+  </body>
+</html>

@@ -200,6 +200,81 @@
           <span class="closing-stamp" aria-hidden="true">OPEN<br />QUESTION<br /><b>↘</b></span>
         </div>
         <div class="closing-question"><span>留給你的問題</span><strong>學校與社區，可以一起提供什麼？</strong><span class="question-spark" aria-hidden="true">✳</span></div>
+
+        <div class="feedback-panel reveal" aria-labelledby="feedback-title">
+          <div class="feedback-panel-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-number">↳</span> 觀展回饋 / OPTIONAL</p>
+              <h3 id="feedback-title">幫下一位觀眾，<br /><em>把資料看得更清楚。</em></h3>
+            </div>
+            <p class="feedback-purpose" id="feedback-description">回饋僅用於改善展覽文案、資料標示與互動；不收姓名、電子郵件或家庭經濟資料。請勿在回饋中填入個人資料。</p>
+          </div>
+
+          <form
+            class="feedback-form"
+            id="feedback-form"
+            action="https://script.google.com/macros/s/AKfycbwu15BXcCf3kczK1nn3xaS46cPHWBTVZLkhXM3ouArTXe2me_djbqcFHHfTLbEAYrdMLQ/exec"
+            method="post"
+            target="feedback-response-frame"
+            aria-describedby="feedback-description"
+          >
+            <input type="hidden" name="responseFormat" value="iframe" />
+            <input type="hidden" name="submissionId" id="feedback-submission-id" />
+
+            <div class="feedback-honeypot" aria-hidden="true">
+              <label for="feedback-website">請留空</label>
+              <input id="feedback-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="feedback-fields">
+              <fieldset class="consent-field">
+                <legend>資料使用同意 <span>必填</span></legend>
+                <label class="consent-option" for="feedback-consent">
+                  <input
+                    id="feedback-consent"
+                    name="consent"
+                    type="checkbox"
+                    value="我已閱讀說明，並同意將回饋用於策展改進。"
+                    required
+                  />
+                  <span>我已閱讀說明，並同意將回饋用於策展改進。</span>
+                </label>
+                <p class="consent-note">只收集送出時間、同意紀錄與你選擇填寫的回饋。</p>
+              </fieldset>
+
+              <div class="feedback-input">
+                <label for="feedback-text">請就 2024 家戶教育服務支出、2001 年 TEPS 課後安排的呈現、限制說明或互動，留下希望補充或修正的回饋。</label>
+                <textarea
+                  id="feedback-text"
+                  name="feedback"
+                  rows="5"
+                  maxlength="2000"
+                  placeholder="哪個地方需要說得更清楚？你希望補充什麼？"
+                  aria-describedby="feedback-hint feedback-count"
+                ></textarea>
+                <div class="feedback-meta">
+                  <span id="feedback-hint">選填，最多 2,000 字。請勿填入個人資料。</span>
+                  <output id="feedback-count" aria-live="off">0 / 2000</output>
+                </div>
+              </div>
+            </div>
+
+            <div class="feedback-submit-row">
+              <p id="feedback-status" role="status" aria-live="polite" aria-atomic="true">回饋是選填的；送出前請先閱讀並勾選資料使用同意。</p>
+              <button class="feedback-submit" type="submit">
+                <span>送出回饋</span>
+                <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+          </form>
+          <iframe
+            class="feedback-response-frame"
+            name="feedback-response-frame"
+            title="觀展回饋送出狀態"
+            aria-hidden="true"
+            tabindex="-1"
+          ></iframe>
+        </div>
       </section>
     </main>
 

@@ -101,6 +101,100 @@ answerButtons.forEach((button) => {
   });
 });
 
+const feedbackForm = document.querySelector("#feedback-form");
+
+if (feedbackForm) {
+  const feedbackFrame = document.querySelector(".feedback-response-frame");
+  const feedbackStatus = document.querySelector("#feedback-status");
+  const feedbackText = document.querySelector("#feedback-text");
+  const feedbackCount = document.querySelector("#feedback-count");
+  const submissionIdInput = document.querySelector("#feedback-submission-id");
+  const submitButton = feedbackForm.querySelector(".feedback-submit");
+  const submitLabel = submitButton.querySelector("span");
+  const trustedResponseOrigins = new Set(["https://script.googleusercontent.com"]);
+  let activeSubmissionId = createSubmissionId();
+  let requestTimer = 0;
+  let isSubmitting = false;
+
+  submissionIdInput.value = activeSubmissionId;
+
+  function createSubmissionId() {
+    if (typeof crypto.randomUUID === "function") return crypto.randomUUID();
+    const values = new Uint8Array(16);
+    crypto.getRandomValues(values);
+    return [...values].map((value) => value.toString(16).padStart(2, "0")).join("");
+  }
+
+  function updateFeedbackCount() {
+    feedbackCount.value = `${feedbackText.value.length} / 2000`;
+    feedbackCount.textContent = feedbackCount.value;
+  }
+
+  function setFeedbackStatus(message, state = "") {
+    feedbackStatus.textContent = message;
+    feedbackStatus.dataset.state = state;
+  }
+
+  function finishRequest() {
+    window.clearTimeout(requestTimer);
+    requestTimer = 0;
+    isSubmitting = false;
+    feedbackForm.removeAttribute("aria-busy");
+    submitButton.disabled = false;
+    submitLabel.textContent = "重試送出";
+  }
+
+  feedbackText.addEventListener("input", updateFeedbackCount);
+
+  feedbackForm.addEventListener("submit", () => {
+    if (isSubmitting) return;
+
+    isSubmitting = true;
+    submissionIdInput.value = activeSubmissionId;
+    feedbackForm.setAttribute("aria-busy", "true");
+    submitButton.disabled = true;
+    submitLabel.textContent = "送出中…";
+    setFeedbackStatus("正在送出回饋，請稍候。", "pending");
+
+    requestTimer = window.setTimeout(() => {
+      if (!isSubmitting) return;
+      finishRequest();
+      setFeedbackStatus("目前沒有收到回覆；你的內容仍保留，請稍後重試。", "error");
+    }, 30000);
+  });
+
+  window.addEventListener("message", (event) => {
+    if (event.source !== feedbackFrame.contentWindow) return;
+    if (!trustedResponseOrigins.has(event.origin)) return;
+
+    const result = event.data;
+    if (!result || result.type !== "exhibition-feedback") return;
+    if (result.submissionId !== activeSubmissionId) return;
+
+    finishRequest();
+
+    if (result.ok) {
+      feedbackForm.reset();
+      activeSubmissionId = createSubmissionId();
+      submissionIdInput.value = activeSubmissionId;
+      updateFeedbackCount();
+      submitLabel.textContent = "送出回饋";
+      setFeedbackStatus("回饋已送出，謝謝你幫助我們修正展覽。", "success");
+      return;
+    }
+
+    const errors = {
+      CONSENT_REQUIRED: "請先勾選資料使用同意，再送出回饋。",
+      INVALID_FEEDBACK: "回饋內容格式不正確，請檢查後重試。",
+      FEEDBACK_TOO_LONG: "回饋超過 2,000 字，請縮短後重試。",
+      INVALID_SUBMISSION_ID: "送出識別碼失效，請再按一次送出。",
+      TRY_AGAIN: "系統目前忙碌，內容已保留，請稍後重試。",
+      SUBMISSION_FAILED: "回饋暫時沒有送出，內容已保留，請稍後重試。",
+    };
+    setFeedbackStatus(errors[result.error] || "回饋暫時沒有送出，內容已保留，請稍後重試。", "error");
+  });
+}
+
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
     const target = document.querySelector(link.getAttribute("href"));

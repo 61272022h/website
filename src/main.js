@@ -104,17 +104,30 @@ answerButtons.forEach((button) => {
 const feedbackForm = document.querySelector("#feedback-form");
 
 if (feedbackForm) {
-  const feedbackFrame = document.querySelector(".feedback-response-frame");
   const feedbackStatus = document.querySelector("#feedback-status");
   const feedbackText = document.querySelector("#feedback-text");
   const feedbackCount = document.querySelector("#feedback-count");
   const submissionIdInput = document.querySelector("#feedback-submission-id");
   const submitButton = feedbackForm.querySelector(".feedback-submit");
   const submitLabel = submitButton.querySelector("span");
-  const trustedResponseOrigins = new Set(["https://script.googleusercontent.com"]);
   let activeSubmissionId = createSubmissionId();
   let requestTimer = 0;
   let isSubmitting = false;
+
+  function isTrustedResponseOrigin(origin) {
+    let responseUrl;
+    try {
+      responseUrl = new URL(origin);
+    } catch {
+      return false;
+    }
+
+    const hostname = responseUrl.hostname.toLowerCase();
+    return responseUrl.protocol === "https:" && (
+      hostname === "script.googleusercontent.com" ||
+      hostname.endsWith("-script.googleusercontent.com")
+    );
+  }
 
   submissionIdInput.value = activeSubmissionId;
 
@@ -164,8 +177,11 @@ if (feedbackForm) {
   });
 
   window.addEventListener("message", (event) => {
-    if (event.source !== feedbackFrame.contentWindow) return;
-    if (!trustedResponseOrigins.has(event.origin)) return;
+    // HtmlService runs inside a Google sandbox iframe nested within the
+    // response iframe, so event.source is not feedbackFrame.contentWindow.
+    // Trust the Googleusercontent sandbox origin and correlate by the
+    // unpredictable submission ID instead.
+    if (!isTrustedResponseOrigin(event.origin)) return;
 
     const result = event.data;
     if (!result || result.type !== "exhibition-feedback") return;

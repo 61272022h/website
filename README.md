@@ -4,9 +4,9 @@
 
 ## 專案狀態
 
-目前已完成單展區響應式原型，包含可點選查看詳情的五等分位家戶教育服務支出圖、2001 年 TEPS 課後安排歷史切片，以及資料解讀互動。GitHub Repo remote 尚未設定，尚無可用的 Pages 網址。
+目前已完成單展區響應式原型，包含可點選查看詳情的五等分位家戶教育服務支出圖、2001 年 TEPS 課後安排歷史切片、資料解讀互動，以及連結 Google Apps Script 的觀展回饋表單。網站已部署至 GitHub Pages。
 
-原型刻意將 2024 年全體家戶支出與 2001 年學生調查分開呈現；兩者不構成教育機會差距擴大的證明。觀展回饋表單與 Google Apps Script 尚未啟用。
+原型刻意將 2024 年全體家戶支出與 2001 年學生調查分開呈現；兩者不構成教育機會差距擴大的證明。
 
 ## 技術規劃
 
@@ -32,6 +32,6 @@ npm run build
 
 ## GitHub Pages
 
-建立並設定 GitHub Repo 後，請在 Repo 的 **Settings → Pages** 將發佈來源設為 **GitHub Actions**。網站來源檔加入後，`main` 分支上的相關變更會觸發部署。
+Repo 的 **Settings → Pages** 發佈來源已設為 **GitHub Actions**。`main` 分支上的網站來源變更會觸發部署。
 
-**網站網址：** 首次部署成功並確認可用後補上。
+**網站網址：** https://61272022h.github.io/website/
